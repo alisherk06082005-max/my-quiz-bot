@@ -230,7 +230,7 @@ application.add_handler(CallbackQueryHandler(select_book, pattern="^select_book$
 application.add_handler(CallbackQueryHandler(start_quiz, pattern="^start_"))
 application.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
 application.add_handler(CallbackQueryHandler(show_top, pattern="^show_top$"))
-_menu$"))
+
     
 import threading
 print("Бот запущен...")
