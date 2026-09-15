@@ -81,12 +81,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
-    text = "👋 **Главное меню**\n\nВыберите действие:"
+   text = "👋 **Главное меню**\n\nВыберите действие:"
     
     if update.message:
         await update.message.reply_text(text, reply_markup=reply_markup, parse_mode="Markdown")
     elif update.callback_query:
-        await update.callback_query.message.edit_text(text, reply_markup=reply_markup, parse_mode="Markdown")
+        await update.callback_query.answer()
+        try:
+            await update.callback_query.message.edit_text(text, reply_markup=reply_markup, parse_mode="Markdown")
+        except Exception:
+            pass
 
 # === ВЫБОР КНИГИ ===
 async def select_book(update: Update, context: ContextTypes.DEFAULT_TYPE):
