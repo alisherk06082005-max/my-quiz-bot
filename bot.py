@@ -236,5 +236,5 @@ def main():
    import threading
     threading.Thread(target=app.run_polling, daemon=True).start()
 
-if __name__ == '__main__':
+
     main()
