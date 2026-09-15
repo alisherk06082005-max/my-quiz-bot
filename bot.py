@@ -234,3 +234,6 @@ def run_bot_thread():
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     application.run_polling(close_loop=False, stop_signals=None)
+import threading
+print("Бот запущен...")
+threading.Thread(target=run_bot_thread, daemon=True).start()
