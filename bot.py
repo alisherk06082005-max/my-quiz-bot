@@ -217,20 +217,18 @@ async def show_top(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     await query.message.edit_text(text, reply_markup=reply_markup, parse_mode="Markdown")
+init_db()  # Создание БД при старте
 
-def main():
-    init_db()  # Создание БД при старте
-    
-    TOKEN = "8935367454:AAH2j3AwJgtZcMDuCEEtLYWV8qbuZ_vCKKA"
-    
-    application = ApplicationBuilder().token(TOKEN).build()
+TOKEN = "8935367454:AAH2j3AwJgtZcMDuCEEtLYWV8qbuZ_vCKKA"
+
+application = ApplicationBuilder().token(TOKEN).build()
 
 application.add_handler(CommandHandler("start", start))
 application.add_handler(CallbackQueryHandler(select_book, pattern="^select_book$"))
 application.add_handler(CallbackQueryHandler(start_quiz, pattern="^start_"))
 application.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
 application.add_handler(CallbackQueryHandler(show_top, pattern="^show_top$"))
-    
+
 def run_bot_thread():
     import asyncio
     loop = asyncio.new_event_loop()
