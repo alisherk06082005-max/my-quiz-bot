@@ -223,18 +223,17 @@ def main():
     
     TOKEN = "8935367454:AAH2j3AwJgtZcMDuCEEtLYWV8qbuZ_vCKKA"
     
-    app = ApplicationBuilder().token(TOKEN).build()
-    
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CallbackQueryHandler(select_book, pattern="^select_book$"))
-    app.add_handler(CallbackQueryHandler(start_quiz, pattern="^start_"))
-    app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
-    app.add_handler(CallbackQueryHandler(show_top, pattern="^show_top$"))
-    app.add_handler(CallbackQueryHandler(start, pattern="^main_menu$"))
-    
-    print("Бот запущен...")
-import threading
-threading.Thread(target=app.run_polling, daemon=True).start()
+    application = ApplicationBuilder().token(TOKEN).build()
 
+application.add_handler(CommandHandler("start", start))
+application.add_handler(CallbackQueryHandler(select_book, pattern="^select_book$"))
+application.add_handler(CallbackQueryHandler(start_quiz, pattern="^start_"))
+application.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
+application.add_handler(CallbackQueryHandler(show_top, pattern="^show_top$"))
+_menu$"))
+    
+import threading
+print("Бот запущен...")
+threading.Thread(target=application.run_polling, daemon=True).start()
 
 main()
