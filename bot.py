@@ -230,10 +230,13 @@ application.add_handler(CallbackQueryHandler(select_book, pattern="^select_book$
 application.add_handler(CallbackQueryHandler(start_quiz, pattern="^start_"))
 application.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
 application.add_handler(CallbackQueryHandler(show_top, pattern="^show_top$"))
-
     
+def run_bot_thread():
+import asyncio
+loop = asyncio.new_event_loop()
+ asyncio.set_event_loop(loop)
+application.run_polling(close_loop=False)
+
 import threading
 print("Бот запущен...")
-threading.Thread(target=application.run_polling, daemon=True).start()
-
-main()
+threading.Thread(target=run_bot_thread, daemon=True).start()
