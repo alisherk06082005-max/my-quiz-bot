@@ -233,8 +233,8 @@ def main():
     app.add_handler(CallbackQueryHandler(start, pattern="^main_menu$"))
     
     print("Бот запущен...")
-   import threading
-    threading.Thread(target=app.run_polling, daemon=True).start()
+import threading
+threading.Thread(target=app.run_polling, daemon=True).start()
 
 
-    main()
+main()
