@@ -73,16 +73,16 @@ def load_questions():
     with open('books.json', 'r', encoding='utf-8') as f:
         return json.load(f)
 
-# === ГЛАВНОЕ МЕНЮ ===
+   # === ГЛАВНОЕ МЕНЮ ===
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("🎮 Начать викторину", callback_data="select_book")],
         [InlineKeyboardButton("🏆 Топ-10 игроков", callback_data="show_top")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    
-   text = "👋 **Главное меню**\n\nВыберите действие:"
-    
+
+    text = "👋 **Главное меню**\n\nВыберите действие:"
+
     if update.message:
         await update.message.reply_text(text, reply_markup=reply_markup, parse_mode="Markdown")
     elif update.callback_query:
