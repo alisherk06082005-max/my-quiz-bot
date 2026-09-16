@@ -223,7 +223,7 @@ async def show_top(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.message.edit_text(text, reply_markup=reply_markup, parse_mode="Markdown")
 init_db()  # Создание БД при старте
 
-TOKEN = "8935367454:AAH2j3AwJgtZcMDuCEEtLYWV8qbuZ_vCKKA"
+TOKEN = "8935367454:AAHhN9StUNqGqVMqTrO4juXVVBCLGejn5Gk"
 
 application = ApplicationBuilder().token(TOKEN).build()
 
